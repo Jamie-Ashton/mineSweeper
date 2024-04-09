@@ -62,20 +62,5 @@ function mineGrid() {
     }
 }
 
-/* readline is a js object
-step 1 : include the readline module 
-step 2 : create an instance of readline.Interface
-step 3 : prompted the user for their name 
-step 4 : Diplay a greeting 
-step 5 : close the readline Interface
-*/
 
-const readline = require('readline') // module included
-const rl = readline.Interface({ //instance of Interface
-    input: process.stdin,
-    output: process.stdout 
-})
-rl.question('What is your name?', (name) => {
-    console.log('hello, ${name}!')
-})
-rl.close();
+ 
