@@ -14,7 +14,7 @@ output => [
     ["0", "0", "0", "0", "0"],
     ["0", "1", "1", "1", "0"],
     ["0", "1", "$", "1", "0"],
-    ["0", "1", "1", "1", "0"],
+    ["0", "2", "2", "2", "0"],
     ["0", "1", "$", "1", "0"]
 ]
 */
@@ -42,7 +42,7 @@ if the y index is valid or exists i want to return arr[y][x] otherwise return nu
             //NOTE - construct an array of values represents the content of the cells adjacents, 
             //after the constructing of the array we will use filter method to keep those elements 
             //that are mines ('$')    
-        ] .filer(adjCell => adjCell === "$").length.toString()
+        ] .filter(adjCell => adjCell === "$").length.toString()
     }
     return arr.map((r,y) => r.map((c,x) => c === "-" ? getMine(x,y) : c))
 }
@@ -62,11 +62,20 @@ function mineGrid() {
     }
 }
 
+/* readline is a js object
+step 1 : include the readline module 
+step 2 : create an instance of readline.Interface
+step 3 : prompted the user for their name 
+step 4 : Diplay a greeting 
+step 5 : close the readline Interface
+*/
 
-
-
-            // checkAccess(y+1, x), checkAccess(y+1, x+1),checkAccess(y+1, x-1),
-            // checkAccess(y-2, x ), checkAccess(y+2, x), checkAccess(y+2, x),
-            // checkAccess(y+3), checkAccess(), checkAccess(),
-            // checkAccess(y+4), checkAccess(), checkAccess(),
-            // checkAccess(y+5), checkAccess(), checkAccess(),
+const readline = require('readline') // module included
+const rl = readline.Interface({ //instance of Interface
+    input: process.stdin,
+    output: process.stdout 
+})
+rl.question('What is your name?', (name) => {
+    console.log('hello, ${name}!')
+})
+rl.close();
